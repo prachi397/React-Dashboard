@@ -1,0 +1,9 @@
+.app-conatiner{
+  width: 95%;
+  background-color: black;
+  margin-left: 3.77rem;
+  overflow: hidden;
+}
+.main-heading{
+  color: white;
+}

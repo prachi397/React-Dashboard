@@ -1,0 +1,50 @@
+.profitCard{
+    display: flex;
+    gap: 5px;
+    align-items: center;
+}
+.Profitcard-title{
+    color: #a3a3a3;
+}
+.profitContainer{
+    display: flex;
+    flex-direction: row ;
+    align-items: center;
+}
+.progressBar {
+    position: relative;
+    left: 5.5rem;
+  }
+  
+  .progressBarText {
+    position: absolute;
+    top: 50%;
+    left: 28%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+  }
+  
+  .progressBarText h3 {
+    margin: 0;
+    font-size: 16px; 
+  }
+  
+  .progressBarText span {
+    display: block;
+    font-size: 11px; 
+    color: #a3a3a3;
+  }
+  .CircularProgressbar{
+    width: 56% !important;
+  }
+  .note{
+    font-size: 10px;
+    position: absolute;
+    top: 88%;
+    left: 51%;
+    color: #a3a3a3;
+  }
+
+  .CircularProgressbar .CircularProgressbar-path{
+    stroke: #7289da !important;
+  }

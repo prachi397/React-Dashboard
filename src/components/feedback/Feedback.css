@@ -1,0 +1,47 @@
+.feedback-head {
+    padding: 1rem;
+}
+
+.card-title {
+    color: white !important;
+}
+
+.card-text {
+    color: #a3a3a3;
+}
+.feedback-comp{
+    margin-top: 2rem !important;
+}
+
+.feedback-comp::-webkit-scrollbar {
+    width: 6px;
+}
+
+.feedback-comp::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.feedback-comp::-webkit-scrollbar-thumb {
+    background-color: #888;
+    border-radius: 10px;
+}
+
+.feedback-comp::-webkit-scrollbar-thumb:hover {
+    background-color: #555;
+}
+
+
+.feedback-container {
+    border-bottom: 1px solid rgb(93, 91, 91);
+}
+
+.profile {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.profile-image {
+    height: 30px;
+    border-radius: 16px;
+}

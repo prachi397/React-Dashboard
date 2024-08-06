@@ -1,0 +1,24 @@
+.card-data {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.card-data .percentVal {
+    display: flex;
+    position: absolute;
+    right: 1rem;
+    align-items: center;
+    gap: 5px;
+}
+.card-title{
+    color: #a3a3a3 !important;
+}
+
+.pi-sort-up-fill {
+    color: #28a745 !important;
+}
+
+.pi-sort-down-fill {
+    color: #dc3545 !important;
+}
