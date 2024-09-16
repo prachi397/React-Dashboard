@@ -1,3 +1,4 @@
+// circle constructor activity
 function circle(radius,x,y){
     this.radius = radius;
     this.location = {
@@ -20,3 +21,34 @@ function circle(radius,x,y){
       circleObj.move(index, index);
       circleObj.draw();
     }
+
+//user constructor
+function User(fullName){
+  this.fullName = fullName;
+  this.friendList = [];
+  this.addFriend = function(friendName){
+    this.friendList.push(friendName);
+  };
+  this.printFriendList = function(){
+    console.log("Friend list is :", this.friendList);
+  };
+  this.findMutualsWith = function(userObj){
+    const mutualFriends = this.friendList.filter((friend)=>userObj.friendList.includes(friend));
+    console.log("Mutual Friends are :", mutualFriends);
+  }
+}
+
+const vivek = new User("Vivek Nigam");
+vivek.addFriend("Harish");
+vivek.addFriend("Radhe");
+vivek.addFriend("Abhijay");
+vivek.printFriendList();
+
+const varun = new User("Varun Verma");
+varun.addFriend("Rohan");
+varun.addFriend("Vatsal");
+varun.addFriend("Radhe");
+varun.addFriend("Abhijay");
+varun.printFriendList();
+
+vivek.findMutualsWith(varun);
