@@ -91,3 +91,31 @@ emp1.markPresent();
 const emp2 = new Developer("Parchi", "IT");
 emp2.markPresent();
 emp2.submitCode();
+
+console.log("========================================================");
+// method overriding
+//Base or Parent class
+class Student1 {
+    constructor(name) {
+      this.fullName = name;
+    }
+    markAttendance() {
+      console.log(this.fullName, "is present");
+      return this;
+    }
+  }
+//Derived or Child class
+class SportsCaptain1 extends Student1 {
+    //here child class overrides the method of parent class
+    markAttendance() {
+      console.log("Sports Captain " + this.fullName + " is present");
+    }
+  
+    playFootball() {
+      console.log(this.fullName, "is playing football");
+    }
+  }
+  const stu1 = new Student1("Annie");
+  stu1.markAttendance();
+  const stu2 = new SportsCaptain1("Annie");
+  stu2.markAttendance();
