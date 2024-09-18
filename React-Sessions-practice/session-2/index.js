@@ -119,3 +119,84 @@ class SportsCaptain1 extends Student1 {
   stu1.markAttendance();
   const stu2 = new SportsCaptain1("Annie");
   stu2.markAttendance();
+
+//super keyword
+class SportsCaptain2 extends Student1 {
+    //here child class overrides the method of parent class
+    markAttendance() {
+      super.markAttendance();
+      console.log("Sports Captain " + this.fullName + " is present");
+    }
+  
+    playFootball() {
+      console.log(this.fullName, "is playing football");
+    }
+  }
+  const stu3 = new SportsCaptain2("Shubh");
+  stu3.markAttendance();
+
+console.log("========================================================");
+//consturctor Overriding
+
+// If the child class does not have a constructor of its own, it uses the constructor of its 
+// parent class. We can have a separate constructor for the child also, 
+// BUT then we'll need to use the super keyword inside the child class's constructor 
+// and pass all the values needed to initialize the parent class constructor.
+
+class SportsCaptain3 extends Student1 {
+     //own constructor of child class
+     constructor(name,age){
+        super(name);
+        this.age = age;
+    }
+    markAttendance() {
+      super.markAttendance();
+      console.log("Sports Captain " + this.fullName + " is present");
+    }
+  
+    playFootball() {
+      console.log(this.fullName, "is playing football");
+    }
+    getAge(){
+        console.log(this.fullName, "is", this.age, "years old.");
+    }
+  }
+  const stu4 = new SportsCaptain3("Shubh",25);
+  stu4.markAttendance();
+  stu4.getAge();
+
+console.log("========================================================");
+//demo of child constructor
+
+//parent class
+class Employee2{
+    constructor(name,department){
+        this.name = name;
+        this.department = department;
+    }
+    markPresent(){
+        console.log(this.name,"is Present");
+    }
+    getRole(){
+        console.log("Employee of Office");
+    }
+}
+//child class
+class Developer2 extends Employee2{
+    constructor(name,department,prefLanguage){
+        super(name,department);
+        this.prefLanguage = prefLanguage;
+    }
+    submitCode(){
+        console.log("Code submitted by", this.name, "from", this.department);
+    }
+    getRole(){
+        console.log("Works with", this.prefLanguage);
+    }
+}
+
+const em = new Employee2("Prachi", "IT");
+em.getRole();
+const dev = new Developer2("Annie", "Finance","English");
+dev.submitCode();
+dev.getRole();
