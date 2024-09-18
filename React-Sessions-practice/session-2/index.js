@@ -36,6 +36,29 @@ class Util{
 // create a object using Util class
 let emp = new Util(employeeData);
 
-console.log(emp.sumSalaries());
-console.log(emp.averageSalaries());
-console.log(emp.findSalaryRange());
+console.log("Sum of salaries :",emp.sumSalaries());
+console.log("Average salary : ",emp.averageSalaries());
+console.log("Salary Range : ",emp.findSalaryRange());
+
+//Inheritance ============================>
+//Parent Class
+class Student {
+    constructor(name) {
+      this.fullName = name;
+    }
+    markAttendance() {
+      console.log(this.fullName, "is present");
+    }
+  }
+  //Derived or Child class
+  class SportsCaptain extends Student {
+    playFootball() {
+      console.log(this.fullName, "is playing football");
+    }
+  }
+const st1 = new Student("Prachi Panwar");
+st1.markAttendance();    
+
+const st2 = new SportsCaptain("Annie");
+st2.markAttendance();  //parent class method
+st2.playFootball();  //own method
