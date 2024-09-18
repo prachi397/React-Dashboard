@@ -40,6 +40,7 @@ console.log("Sum of salaries :",emp.sumSalaries());
 console.log("Average salary : ",emp.averageSalaries());
 console.log("Salary Range : ",emp.findSalaryRange());
 
+console.log("========================================================");
 //Inheritance ============================>
 //Parent Class
 class Student {
@@ -62,3 +63,31 @@ st1.markAttendance();
 const st2 = new SportsCaptain("Annie");
 st2.markAttendance();  //parent class method
 st2.playFootball();  //own method
+
+console.log("========================================================");
+
+//Inheritance Activity
+
+//parent class
+class Employee{
+    constructor(name,department){
+        this.name = name;
+        this.department = department;
+    }
+    markPresent(){
+        console.log(this.name,"is Present");
+    }
+}
+
+//child class
+class Developer extends Employee{
+    submitCode(){
+        console.log("Code submitted by", this.name, "from", this.department);
+    }
+}
+const emp1 = new Employee("Annie", "Finance");
+emp1.markPresent();
+
+const emp2 = new Developer("Parchi", "IT");
+emp2.markPresent();
+emp2.submitCode();
