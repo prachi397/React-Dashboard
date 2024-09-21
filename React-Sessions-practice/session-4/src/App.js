@@ -3,6 +3,7 @@ import './App.css';
 import CounterApp from './components/CounterApp';
 import UncontrolledForm from './components/UncontrolledForm';
 import ControlledForm from './components/ControlledForm';
+import ConditionalComp from './components/ConditionalComp';
 
 function App() {
   return (
@@ -11,7 +12,8 @@ function App() {
       <hr/>
       <CounterApp data={5} name='Company B'/> */}
       {/* <UncontrolledForm/> */}
-      <ControlledForm/>
+      {/* <ControlledForm/> */}
+      <ConditionalComp/>
     </div>
   );
 }
