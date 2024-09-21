@@ -10,18 +10,18 @@ const passwords = [
     "admin",
     "helloworld",
     "mypassword123",
-  ];
+];
 //imperative code
 let longPass = [];
-for(let i=0;i<passwords.length;i++){
-    if(passwords[i].length>=9){
+for (let i = 0; i < passwords.length; i++) {
+    if (passwords[i].length >= 9) {
         longPass.push(passwords[i]);
     }
 }
-console.log("Passwords having length greater than 9 (imperative code) :",longPass);
+console.log("Passwords having length greater than 9 (imperative code) :", longPass);
 
 //declarative code
-const longPasswords = passwords.filter((password)=>password.length>=9);
+const longPasswords = passwords.filter((password) => password.length >= 9);
 console.log("Long Passwords using declarative code :", longPasswords);
 
 console.log("==================================================");
@@ -33,8 +33,8 @@ console.log("==================================================");
 
 const byTwo = function (value) {
     return value / 2;
-  };
-  
+};
+
 const ans = byTwo(8);
 console.log(ans);
 
@@ -47,13 +47,13 @@ console.log("==================================================");
 //Pure Function
 function addTwo1(a, b) {
     return a + b;
-  }
-console.log("pure function => ", addTwo1(2,5));
+}
+console.log("pure function => ", addTwo1(2, 5));
 //Impure Function
 function addTwo2(a, b) {
     console.log(a, b);
-  }
-addTwo2(5,2);
+}
+addTwo2(5, 2);
 
 console.log("==================================================");
 
@@ -65,70 +65,70 @@ let x = 15;
 let y = 10;
 
 const add = () => {
-  //Impure function using global variables
-  return x + y;
+    //Impure function using global variables
+    return x + y;
 };
-console.log("Impure function return :",add());
+console.log("Impure function return :", add());
 const addFP = (x, y) => {
-  //Pure function only using what's passed to it
-  return x + y;
+    //Pure function only using what's passed to it
+    return x + y;
 };
-console.log("Pure function return :",addFP(5,8));
-  
+console.log("Pure function return :", addFP(5, 8));
+
 console.log("==================================================");
 //copying of array
-const arr = [1,2,3,4,5];
+const arr = [1, 2, 3, 4, 5];
 const copyArr = [...arr];
 copyArr[2] = 9;
-console.log("original array is :",arr);
-console.log("copied array is :",copyArr);
+console.log("original array is :", arr);
+console.log("copied array is :", copyArr);
 
 //similarly we can copy objects using spread operator
-const obj = {name:"Prachi", age: 22, address : "UP"};
-const copyObj = {...obj, country:"India"};
+const obj = { name: "Prachi", age: 22, address: "UP" };
+const copyObj = { ...obj, country: "India" };
 copyObj.address = "Delhi";
-console.log("original obj is :",obj);
-console.log("copied obj is :",copyObj);
+console.log("original obj is :", obj);
+console.log("copied obj is :", copyObj);
 
 //copy nested objects
 const nestedObj = {
     name: "Prachi",
     address: {
-      city: "Delhi",
-      country: "India",
+        city: "Delhi",
+        country: "India",
     },
-  };
-const copiedNestedObj = {...nestedObj};
+};
+const copiedNestedObj = { ...nestedObj };
 //see the console logs, it will modify the city for both orginal as well copied object
 //this is because the soread operator does not works on nested objects it only copies from 
 // a single parent level, for the nested it address to the memory location instead of copying.
 copiedNestedObj.address.city = "DBD";
 copiedNestedObj.name = "Anna";
 
-console.log(nestedObj);  
-console.log(copiedNestedObj);  
+console.log(nestedObj);
+console.log(copiedNestedObj);
 
 // for nested objects we can use 
 const nestedObjCopy = {
     ...nestedObj,
     address: {
-      ...nestedObj.address,
-      city: "Mzn",
+        ...nestedObj.address,
+        city: "Mzn",
     },
-  };
-console.log("orignal nested object =>",nestedObj)
-console.log("nested object copy =>",nestedObjCopy)
+};
+console.log("orignal nested object =>", nestedObj)
+console.log("nested object copy =>", nestedObjCopy)
 
 console.log("==================================================");
 
 //Pure Todo List
 let todoDB = [];
 
-function addTodo(arr, item, priority){
-    if(priority === "high"){
-        return [item,...arr];
-    }else{
-        return [...arr,item];
+function addTodo(arr, item, priority) {
+    if (priority === "high") {
+        return [item, ...arr];
+    } else {
+        return [...arr, item];
     }
 }
 
@@ -138,8 +138,12 @@ function addTodo(arr, item, priority){
 //     return arr;
 // }
 
-function clearTodo(arr,index){
-    return arr.map((item,idx)=> idx === index ? null:item);
+function clearTodo(arr, index) {
+    // return arr.map((item, idx) => idx === index ? null : item);
+    //instead of map we can use this way as well
+    const tempArr = [...arr];
+    tempArr[index] = null;
+    return tempArr;
 }
 
 // //impure
@@ -147,25 +151,25 @@ function clearTodo(arr,index){
 //     arr[index] = newItem;
 //     return arr;
 // }
-function updateTodo(arr,index,newItem){
-    return arr.map((item,idx)=>idx===index ? newItem:item);
+function updateTodo(arr, index, newItem) {
+    return arr.map((item, idx) => idx === index ? newItem : item);
 }
-function getTodo(arr,index){
-    if(index>=0){
+function getTodo(arr, index) {
+    if (index >= 0) {
         return arr[index];
-    }else{
+    } else {
         return arr;
     }
 }
 
-todoDB = addTodo(todoDB, 'Buy groceries', 'low'); 
-todoDB = addTodo(todoDB, 'Pay bills', 'high');  
+todoDB = addTodo(todoDB, 'Buy groceries', 'low');
+todoDB = addTodo(todoDB, 'Pay bills', 'high');
 console.log(todoDB);
-todoDB = clearTodo(todoDB, 1); 
-console.log(todoDB); 
-todoDB = updateTodo(todoDB, 1, 'Clean the house'); 
-console.log(todoDB); 
-console.log(getTodo(todoDB,0)); 
+todoDB = clearTodo(todoDB, 1);
+console.log(todoDB);
+todoDB = updateTodo(todoDB, 1, 'Clean the house');
+console.log(todoDB);
+console.log(getTodo(todoDB, 0));
 console.log(getTodo(todoDB));
 
 console.log("==================================================");
@@ -177,11 +181,11 @@ console.log("==================================================");
 
 const addNums = (x, y) => {
     return x + y;
-  };
-  
+};
+
 //higher order fucntion
-const calculate = (add,x,y)=>{
-    const val = add(x,y);
+const calculate = (add, x, y) => {
+    const val = add(x, y);
     return val;
 }
-console.log(calculate(addNums,5,6));
+console.log(calculate(addNums, 5, 6));
