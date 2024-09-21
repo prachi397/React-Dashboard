@@ -118,3 +118,53 @@ const nestedObjCopy = {
   };
 console.log("orignal nested object =>",nestedObj)
 console.log("nested object copy =>",nestedObjCopy)
+
+console.log("==================================================");
+
+//Pure Todo List
+let todoDB = [];
+
+function addTodo(arr, item, priority){
+    if(priority === "high"){
+        return [item,...arr];
+    }else{
+        return [...arr,item];
+    }
+}
+
+// // this is not pure function
+// function clearTodo(arr,index){
+//     arr[index] = null;
+//     return arr;
+// }
+
+function clearTodo(arr,index){
+    return arr.map((item,idx)=> idx === index ? null:item);
+}
+
+// //impure
+// function updateTodo(arr,index,newItem){
+//     arr[index] = newItem;
+//     return arr;
+// }
+function updateTodo(arr,index,newItem){
+    return arr.map((item,idx)=>idx===index ? newItem:item);
+}
+function getTodo(arr,index){
+    if(index>=0){
+        return arr[index];
+    }else{
+        return arr;
+    }
+}
+
+todoDB = addTodo(todoDB, 'Buy groceries', 'low'); 
+todoDB = addTodo(todoDB, 'Pay bills', 'high');  
+console.log(todoDB);
+
+todoDB = clearTodo(todoDB, 1); 
+console.log(todoDB); 
+todoDB = updateTodo(todoDB, 1, 'Clean the house'); 
+console.log(todoDB); 
+console.log(getTodo(todoDB,0)); 
+console.log(getTodo(todoDB));
