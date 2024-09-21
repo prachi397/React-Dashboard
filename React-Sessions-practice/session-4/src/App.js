@@ -5,7 +5,9 @@ import CounterApp from './components/CounterApp';
 function App() {
   return (
     <div className="App">
-      <CounterApp/>
+      <CounterApp data={1} name='Company A'/>
+      <hr/>
+      <CounterApp data={5} name='Company B'/>
     </div>
   );
 }
