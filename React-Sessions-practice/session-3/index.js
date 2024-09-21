@@ -74,4 +74,47 @@ const addFP = (x, y) => {
   return x + y;
 };
 console.log("Pure function return :",addFP(5,8));
-    
+  
+console.log("==================================================");
+//copying of array
+const arr = [1,2,3,4,5];
+const copyArr = [...arr];
+copyArr[2] = 9;
+console.log("original array is :",arr);
+console.log("copied array is :",copyArr);
+
+//similarly we can copy objects using spread operator
+const obj = {name:"Prachi", age: 22, address : "UP"};
+const copyObj = {...obj, country:"India"};
+copyObj.address = "Delhi";
+console.log("original obj is :",obj);
+console.log("copied obj is :",copyObj);
+
+//copy nested objects
+const nestedObj = {
+    name: "Prachi",
+    address: {
+      city: "Delhi",
+      country: "India",
+    },
+  };
+const copiedNestedObj = {...nestedObj};
+//see the console logs, it will modify the city for both orginal as well copied object
+//this is because the soread operator does not works on nested objects it only copies from 
+// a single parent level, for the nested it address to the memory location instead of copying.
+copiedNestedObj.address.city = "DBD";
+copiedNestedObj.name = "Anna";
+
+console.log(nestedObj);  
+console.log(copiedNestedObj);  
+
+// for nested objects we can use 
+const nestedObjCopy = {
+    ...nestedObj,
+    address: {
+      ...nestedObj.address,
+      city: "Mzn",
+    },
+  };
+console.log("orignal nested object =>",nestedObj)
+console.log("nested object copy =>",nestedObjCopy)
