@@ -52,3 +52,17 @@ varun.addFriend("Abhijay");
 varun.printFriendList();
 
 vivek.findMutualsWith(varun);
+
+//creating class
+class People{
+  constructor(personName,personAge){
+    this.personName = personName;
+    this.personAge = personAge
+  }
+  greet(){
+    console.log("Hello",this.personName, "your age is", this.personAge);
+  }
+}
+let person = new People("Prachi", 22);
+console.log(person);
+person.greet();
