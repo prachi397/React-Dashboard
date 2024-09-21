@@ -161,10 +161,27 @@ function getTodo(arr,index){
 todoDB = addTodo(todoDB, 'Buy groceries', 'low'); 
 todoDB = addTodo(todoDB, 'Pay bills', 'high');  
 console.log(todoDB);
-
 todoDB = clearTodo(todoDB, 1); 
 console.log(todoDB); 
 todoDB = updateTodo(todoDB, 1, 'Clean the house'); 
 console.log(todoDB); 
 console.log(getTodo(todoDB,0)); 
 console.log(getTodo(todoDB));
+
+console.log("==================================================");
+//Higher order fucntions -->
+// A function that accepts and/or returns another function is called a higher-order function.
+// In JS, functions are first-class citizens because You can pass them around, store them in 
+// variables and arrays, use them as inputs for calculations. You can use them like any piece of 
+// data.The greatest benefit of HOFs is greater reusability.
+
+const addNums = (x, y) => {
+    return x + y;
+  };
+  
+//higher order fucntion
+const calculate = (add,x,y)=>{
+    const val = add(x,y);
+    return val;
+}
+console.log(calculate(addNums,5,6));
