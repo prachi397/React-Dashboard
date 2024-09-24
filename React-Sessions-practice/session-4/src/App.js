@@ -4,8 +4,26 @@ import CounterApp from './components/CounterApp';
 import UncontrolledForm from './components/UncontrolledForm';
 import ControlledForm from './components/ControlledForm';
 import ConditionalComp from './components/ConditionalComp';
+import SuperheroCheckBox from './components/SuperheroCheckbox';
+import { useState } from 'react';
+
+//list of superheros
+const superheroes = [
+  { id: "a2jdkjd", name: "Winter Soldier" },
+  { id: "jdkdjk1", name: "Iron Man" },
+  { id: "b3dkdj2", name: "Black Widow" },
+  { id: "b3dkdj3", name: "Spider Man" },
+  { id: "b3dkdj4", name: "Shakti Maan" },
+  { id: "b3dkdj5", name: "Goku" }
+];
 
 function App() {
+  const [shuffleHero, setShuffleHero] = useState(superheroes);
+
+  function handleShuffle(){
+    let randomArr = [...superheroes].sort(()=>Math.random()-0.5);
+    setShuffleHero(randomArr);
+  }
   return (
     <div className="App">
       {/* <CounterApp data={1} name='Company A'/>
@@ -13,7 +31,14 @@ function App() {
       <CounterApp data={5} name='Company B'/> */}
       {/* <UncontrolledForm/> */}
       {/* <ControlledForm/> */}
-      <ConditionalComp/>
+      {/* <ConditionalComp/> */}
+      {/* <SuperheroCheckBox name={superheroes[0].name}/>
+      <SuperheroCheckBox name={superheroes[1].name}/>
+      <SuperheroCheckBox name={superheroes[2].name}/> */}
+      {shuffleHero.map((hero)=>(
+        <SuperheroCheckBox key={hero.id} name={hero.name}/>
+      ))}
+      <button onClick={handleShuffle}>Suffle Superheros</button>
     </div>
   );
 }
