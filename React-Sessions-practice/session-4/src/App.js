@@ -5,7 +5,8 @@ import UncontrolledForm from './components/UncontrolledForm';
 import ControlledForm from './components/ControlledForm';
 import ConditionalComp from './components/ConditionalComp';
 import SuperheroCheckBox from './components/SuperheroCheckbox';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import SideEffectDemo from './components/SideEffectDemo';
 
 //list of superheros
 const superheroes = [
@@ -35,10 +36,11 @@ function App() {
       {/* <SuperheroCheckBox name={superheroes[0].name}/>
       <SuperheroCheckBox name={superheroes[1].name}/>
       <SuperheroCheckBox name={superheroes[2].name}/> */}
-      {shuffleHero.map((hero)=>(
+      {/* {shuffleHero.map((hero)=>(
         <SuperheroCheckBox key={hero.id} name={hero.name}/>
       ))}
-      <button onClick={handleShuffle}>Suffle Superheros</button>
+      <button onClick={handleShuffle}>Suffle Superheros</button> */}
+      <SideEffectDemo/>
     </div>
   );
 }
