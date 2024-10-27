@@ -7,6 +7,10 @@ import ConditionalComp from './components/ConditionalComp';
 import SuperheroCheckBox from './components/SuperheroCheckbox';
 import { useEffect, useState } from 'react';
 import SideEffectDemo from './components/SideEffectDemo';
+import ToggleParagraph from './components/ToggleParagraph';
+import WelcomeComp from './components/WelcomeComp';
+import LastLetterCapitalize from './components/LastLetterCapitalize';
+import CountAnd from './components/CountAnd';
 
 //list of superheros
 const superheroes = [
@@ -40,7 +44,11 @@ function App() {
         <SuperheroCheckBox key={hero.id} name={hero.name}/>
       ))}
       <button onClick={handleShuffle}>Suffle Superheros</button> */}
-      <SideEffectDemo/>
+      {/* <SideEffectDemo/> */}
+      <ToggleParagraph/>
+      <WelcomeComp isLoggedIn={false}/>
+      <LastLetterCapitalize text="hello world"/>
+      <CountAnd/>
     </div>
   );
 }
